@@ -12,3 +12,7 @@
 ## structure
 
 ![structure](assets/structure.png)
+
+## simile
+
+![simile](assets/simile.png)
