@@ -4,7 +4,6 @@ const Posts = require('../model/posts');
 
 const posts = {
   async getPosts({ req, res }) {
-    console.log(req);
     const allPosts = await Posts.find();
     handleSuccess(res, allPosts);
     res.end();
