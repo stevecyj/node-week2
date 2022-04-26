@@ -1,6 +1,6 @@
-const headers = require("../headers");
-const handleSuccess = require("../handleSuccess");
-const handleError = require("../handleError");
+const headers = require("../service/headers");
+const handleSuccess = require("../service/handleSuccess");
+const handleError = require("../service/handleError");
 const Posts = require("../model/posts");
 
 const routes = async (req, res) => {
