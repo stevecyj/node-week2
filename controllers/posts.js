@@ -17,7 +17,7 @@ const posts = {
     try {
       const data = JSON.parse(body);
       const createAt = this.localDate();
-      console.log(createAt);
+      // console.log(createAt);
       if (data.content) {
         const newPost = await Posts.create({
           name: data.name,
@@ -25,6 +25,7 @@ const posts = {
           tags: data.tags,
           type: data.type,
           createAt: createAt,
+          updateAt: createAt,
         });
         handleSuccess(res, newPost);
       } else {
@@ -59,8 +60,14 @@ const posts = {
       if (post.hasOwnProperty('content') && post.content === '') {
         handleError(res);
       } else {
-        const updateResult = await Posts.findByIdAndUpdate(id, { ...post });
-        // console.log(updateResult);
+        const updateResult = await Posts.findByIdAndUpdate(id, {
+          ...post,
+          updateAt: this.localDate(),
+        });
+        // console.log({
+        //   ...post,
+        //   updateAt: this.localDate(),
+        // });
         if (updateResult) {
           handleSuccess(res, updateResult);
         } else {

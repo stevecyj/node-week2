@@ -25,6 +25,11 @@ const postsSchema = new mongoose.Schema(
       default: Date.now,
       select: false,
     },
+    updateAt: {
+      type: Date,
+      default: Date.now,
+      select: false,
+    },
     content: {
       type: String,
       required: [true, 'Content 未填寫'],
