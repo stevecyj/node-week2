@@ -26,6 +26,14 @@ const posts = {
       handleError(res, err);
     }
   },
+  async deletePosts({ req = null, res }) {
+    // console.log(req.url);
+    if (req.url === '/posts') {
+      const deleteResult = await Posts.deleteMany({});
+      console.log(deleteResult);
+      handleSuccess(res, deleteResult);
+    }
+  },
 };
 
 module.exports = posts;

@@ -14,6 +14,8 @@ const routes = async (req, res) => {
     PostController.getPosts({ req, res });
   } else if (url === '/posts' && method === 'POST') {
     req.on('end', () => PostController.createPosts({ req, res, body }));
+  } else if (url === '/posts' && method === 'DELETE') {
+    PostController.deletePosts({ req, res });
   } else if (method === 'OPTIONS') {
     HttpController.cors(req, res);
   } else {
