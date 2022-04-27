@@ -64,10 +64,6 @@ const posts = {
           ...post,
           updateAt: this.localDate(),
         });
-        // console.log({
-        //   ...post,
-        //   updateAt: this.localDate(),
-        // });
         if (updateResult) {
           handleSuccess(res, updateResult);
         } else {
