@@ -28,18 +28,36 @@ const posts = {
   },
   async deletePosts({ req, res }) {
     const deleteResult = await Posts.deleteMany({});
-    console.log(deleteResult);
     handleSuccess(res, deleteResult);
   },
   async deleteSinglePost({ req, res }) {
+    const id = req.url.split('/').pop();
     try {
-      const id = req.url.split('/').pop();
       const deleteResult = await Posts.findByIdAndDelete(id);
       // console.log(deleteResult);
       if (deleteResult) {
         handleSuccess(res, deleteResult);
       } else {
         handleError(res, deleteResult);
+      }
+    } catch (err) {
+      handleError(res, err);
+    }
+  },
+  async updateSinglePost({ req, res, body }) {
+    const id = req.url.split('/').pop();
+    const post = JSON.parse(body);
+    try {
+      if (post.hasOwnProperty('content') && post.content === '') {
+        handleError(res);
+      } else {
+        const updateResult = await Posts.findByIdAndUpdate(id, { ...post });
+        // console.log(updateResult);
+        if (updateResult) {
+          handleSuccess(res, updateResult);
+        } else {
+          handleError(res, updateResult);
+        }
       }
     } catch (err) {
       handleError(res, err);
