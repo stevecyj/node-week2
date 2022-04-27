@@ -34,8 +34,13 @@ const posts = {
   async deleteSinglePost({ req, res }) {
     try {
       const id = req.url.split('/').pop();
-      const deleteResult = await Posts.deleteOne({ _id: id });
-      handleSuccess(res, deleteResult);
+      const deleteResult = await Posts.findByIdAndDelete(id);
+      // console.log(deleteResult);
+      if (deleteResult) {
+        handleSuccess(res, deleteResult);
+      } else {
+        handleError(res, deleteResult);
+      }
     } catch (err) {
       handleError(res, err);
     }
