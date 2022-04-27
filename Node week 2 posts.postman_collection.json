@@ -1,0 +1,194 @@
+{
+  "info": {
+    "_postman_id": "9f0df0c3-967b-4f6b-9c9b-2bdcb4d4b6d2",
+    "name": "Node week 2 posts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "新增文章",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"jojo\",\r\n    \"userPhoto\": \"https://images.unsplash.com/photo-1650347325312-f2dea7f5a50e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"預設\"\r\n    ],\r\n    \"image\": \"\",\r\n    \"content\": \"test content\",\r\n    \"type\": \"person\",\r\n    \"likes\": 0,\r\n    \"comments\": 0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/posts",
+          "host": ["{{URL}}"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刪除文章，全部或單筆",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}/posts/6268e23a76de6069564120f5",
+          "host": ["{{URL}}"],
+          "path": ["posts", "6268e23a76de6069564120f5"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "修改文章",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"jojo\",\r\n    \"userPhoto\": \"https://images.unsplash.com/photo-1650347325312-f2dea7f5a50e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"預設\"\r\n    ],\r\n    \"image\": \"\",\r\n    \"content\": \"ccc\",\r\n    \"type\": \"person\",\r\n    \"likes\": 0,\r\n    \"comments\": 0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL}}/posts/6268e3c4cdd2f7b863ef14e5",
+          "host": ["{{URL}}"],
+          "path": ["posts", "6268e3c4cdd2f7b863ef14e5"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "取得所有文章",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}/posts",
+          "host": ["{{URL}}"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "OPTIONS",
+      "request": {
+        "method": "OPTIONS",
+        "header": [],
+        "url": {
+          "raw": "{{URL}}",
+          "host": ["{{URL}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "新增文章  heroku",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"jojo\",\r\n    \"userPhoto\": \"https://images.unsplash.com/photo-1650347325312-f2dea7f5a50e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"預設\"\r\n    ],\r\n    \"image\": \"\",\r\n    \"content\": \"test content\",\r\n    \"type\": \"person\",\r\n    \"likes\": 0,\r\n    \"comments\": 0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL-heroku}}/posts",
+          "host": ["{{URL-heroku}}"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "刪除文章，全部或單筆 Copy, heroku",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{URL-heroku}}/posts",
+          "host": ["{{URL-heroku}}"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "修改文章 heroku",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"jojo\",\r\n    \"userPhoto\": \"https://images.unsplash.com/photo-1650347325312-f2dea7f5a50e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80\",\r\n    \"tags\": [\r\n        \"預設\"\r\n    ],\r\n    \"image\": \"\",\r\n    \"content\": \"ccc\",\r\n    \"type\": \"person\",\r\n    \"likes\": 0,\r\n    \"comments\": 0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{URL-heroku}}/posts/6268f25da07996484475f53e",
+          "host": ["{{URL-heroku}}"],
+          "path": ["posts", "6268f25da07996484475f53e"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "取得所有文章 heroku",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{URL-heroku}}/posts",
+          "host": ["{{URL-heroku}}"],
+          "path": ["posts"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "URL",
+      "value": "http://192.168.0.100:3000",
+      "type": "string"
+    },
+    {
+      "key": "URL3005",
+      "value": "http://192.168.0.100:3005",
+      "type": "string"
+    },
+    {
+      "key": "URL-heroku",
+      "value": "https://pacific-fjord-65921.herokuapp.com",
+      "type": "string"
+    }
+  ]
+}
