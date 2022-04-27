@@ -26,12 +26,18 @@ const posts = {
       handleError(res, err);
     }
   },
-  async deletePosts({ req = null, res }) {
-    // console.log(req.url);
-    if (req.url === '/posts') {
-      const deleteResult = await Posts.deleteMany({});
-      console.log(deleteResult);
+  async deletePosts({ req, res }) {
+    const deleteResult = await Posts.deleteMany({});
+    console.log(deleteResult);
+    handleSuccess(res, deleteResult);
+  },
+  async deleteSinglePost({ req, res }) {
+    try {
+      const id = req.url.split('/').pop();
+      const deleteResult = await Posts.deleteOne({ _id: id });
       handleSuccess(res, deleteResult);
+    } catch (err) {
+      handleError(res, err);
     }
   },
 };
