@@ -1,13 +1,9 @@
 const handleSuccess = require('../service/handleSuccess');
 const handleError = require('../service/handleError');
+const handleLocalDate = require('../service/handleLocalDate');
 const Posts = require('../model/posts');
 
 const posts = {
-  localDate(v) {
-    const d = new Date(v || Date.now());
-    d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-    return d.toISOString();
-  },
   async getPosts({ req, res }) {
     const allPosts = await Posts.find();
     handleSuccess(res, allPosts);
@@ -16,7 +12,7 @@ const posts = {
   async createPosts({ req, res, body }) {
     try {
       const data = JSON.parse(body);
-      const createAt = this.localDate();
+      const createAt = handleLocalDate();
       // console.log(createAt);
       if (data.content) {
         const newPost = await Posts.create({
@@ -62,7 +58,7 @@ const posts = {
       } else {
         const updateResult = await Posts.findByIdAndUpdate(id, {
           ...post,
-          updateAt: this.localDate(),
+          updateAt: handleLocalDate(),
         });
         if (updateResult) {
           handleSuccess(res, updateResult);
