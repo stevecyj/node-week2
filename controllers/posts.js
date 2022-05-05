@@ -50,10 +50,11 @@ const posts = {
     }
   },
   async updateSinglePost({ req, res, body }) {
-    const id = req.url.split('/').pop();
-    const post = JSON.parse(body);
     try {
-      if (post.hasOwnProperty('content') && post.content === '') {
+      const id = req.url.split('/').pop();
+      const post = JSON.parse(body);
+      console.log(body);
+      if (Object.keys(post) || (post.hasOwnProperty('content') && post.content === '')) {
         handleError(res);
       } else {
         const updateResult = await Posts.findByIdAndUpdate(id, {
