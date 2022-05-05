@@ -53,14 +53,22 @@ const posts = {
     try {
       const id = req.url.split('/').pop();
       const post = JSON.parse(body);
-      // console.log(post);
-      if (Object.keys(post) == 0 || (post.hasOwnProperty('content') && post.content === '')) {
+      // console.log(post.tags.length);
+      if (
+        Object.keys(post).length == 0 ||
+        (post.hasOwnProperty('content') && post.content === '') ||
+        post.tags.length === 0
+      ) {
         handleError(res);
       } else {
-        const updateResult = await Posts.findByIdAndUpdate(id, {
-          ...post,
-          updateAt: handleLocalDate(),
-        });
+        const updateResult = await Posts.findByIdAndUpdate(
+          id,
+          {
+            ...post,
+            updateAt: handleLocalDate(),
+          },
+          { runValidators: true }
+        );
         if (updateResult) {
           handleSuccess(res, updateResult);
         } else {
