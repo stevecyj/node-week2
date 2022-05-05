@@ -67,7 +67,7 @@ const posts = {
             ...post,
             updateAt: handleLocalDate(),
           },
-          { runValidators: true }
+          { runValidators: true, new: true }
         );
         if (updateResult) {
           handleSuccess(res, updateResult);
